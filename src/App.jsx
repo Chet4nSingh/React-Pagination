@@ -1,5 +1,25 @@
+import axios from "axios";
+import { useEffect } from "react";
+import { useState } from "react";
+
 function App() {
-  return <h1 className="text-9xl p-8">Pagination</h1>
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      setPosts(res.data);
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  return <h1 className="text-9xl p-8">Pagination</h1>;
 }
 
-export default App
+export default App;
