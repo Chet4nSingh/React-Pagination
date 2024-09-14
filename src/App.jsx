@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import Posts from "./components/Posts";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -19,7 +20,12 @@ function App() {
     fetchPosts();
   }, []);
 
-  return <h1 className="text-9xl p-8">Pagination</h1>;
+  return (
+    <main className="w-full min-h-screen p-8 bg-black text-white">
+      <h1 className="text-9xl p-8">Pagination</h1>
+      <Posts posts={posts} loading={loading} />
+    </main>
+  );
 }
 
 export default App;
