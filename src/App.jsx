@@ -29,7 +29,7 @@ function App() {
     <main className="w-full min-h-screen px-8 pb-8 bg-black text-white">
       <h1 className="text-9xl mb-16 pt-8">Pagination</h1>
       <Posts posts={currentPosts} loading={loading} />
-      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} />
+      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={setCurrentPage} />
     </main>
   );
 }
